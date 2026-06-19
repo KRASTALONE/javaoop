@@ -1,0 +1,232 @@
+class Animal 
+{
+    public void sound() 
+{
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal 
+{
+    public void sound() 
+{
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal 
+{
+    public void sound() 
+{
+        System.out.println("Cat meows");
+    }
+}
+
+class Program13 
+{
+    public static void main(String args[]) 
+{
+
+        Animal myAnimal;
+
+        myAnimal = new Dog();
+        myAnimal.sound();
+
+        myAnimal = new Cat();
+        myAnimal.sound();
+    }
+}
+class Program14 
+
+{
+    public static void main(String args[]) 
+{
+
+        try 
+{
+            int size = -5;
+
+            int[] array = new int[size]; // This will cause exception
+        } 
+        catch (NegativeArraySizeException e) 
+{
+            System.out.println("Error: Attempted to create an array with negative size");
+            e.printStackTrace();
+        }
+
+        System.out.println("Continuing execution...");
+    }
+}
+class Program15
+{
+    public static void main(String args[])
+    {
+        String str = null;
+
+        try
+        {
+            System.out.println("Length of the string: " + str.length());
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("Error: A NullPointerException has been caught.");
+            System.out.println("You cannot access methods or properties of a null object.");
+        }
+        finally
+        {
+            System.out.println("Execution completed. Please check your variables.");
+        }
+    }
+}
+import Mypackage.*;
+
+class program16
+
+{
+
+{
+
+public static void main(String args[])
+
+Greeting greet = new Greeting();
+
+greet.displaymessage();
+
+}
+
+}
+
+package Mypackage;
+
+public class Greeting
+
+{
+
+public void displaymessage()
+
+{
+
+System.out.println("Hello from the user-defined package");
+
+}
+
+}
+import java.util.Scanner;
+class Program17 
+{
+    public static void main(String[] args) 
+{
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int originalNum = scanner.nextInt();
+        
+        int num = originalNum;
+        int reversedNum = 0;
+        
+        // Reverse the number
+        while (num != 0) 
+{
+            int remainder = num % 10;
+            reversedNum = reversedNum * 10 + remainder;
+            num = num / 10;
+        }
+        
+        // Check palindrome
+        if (originalNum == reversedNum) 
+{
+            System.out.println(originalNum + " is a palindrome.");
+}
+ else
+ {
+            System.out.println(originalNum + " is not a palindrome.");
+   }
+        scanner.close();
+    }
+}
+class Program18 
+{
+  public static void main(String[] args) 
+{
+
+        // Check if arguments are provided
+        if (args.length == 0) 
+{
+            System.out.println("No command line arguments found. Please provide numbers.");
+            return;
+        }
+
+        // Loop through all arguments
+        for (String arg : args) 
+{
+            try
+ {
+                int num = Integer.parseInt(arg);
+                long factorial = calculateFactorial(num);
+
+                System.out.println("Factorial of " + num + " is: " + factorial);
+
+            }
+ catch (NumberFormatException e) 
+{
+                System.out.println("Invalid input: " + arg + " is not a valid integer.");
+            
+            } 
+catch (IllegalArgumentExcep…
+import java.util.Scanner;
+class Program19 
+{
+
+    public static void main(String[] args) 
+{
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the lower limit: ");
+        int lowerLimit = scanner.nextInt();
+
+        System.out.print("Enter the upper limit: ");
+        int upperLimit = scanner.nextInt();
+
+        System.out.println("Prime numbers between " + lowerLimit + " and " + upperLimit + " are:");
+
+        for (int num = lowerLimit; num <= upperLimit; num++) 
+{
+            if (isPrime(num)) 
+{
+                System.out.print(num + " ");
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Method to check prime number
+    private static boolean isPrime(int number) 
+{
+
+        i…
+class Program20 implements Runnable 
+{
+
+    public void run() 
+{
+        System.out.println("Inside: " + Thread.currentThread().getName());
+    }
+
+    public static void main(String args[])
+ {
+
+        System.out.println("Inside: " + Thread.currentThread().getName());
+
+        Runnable runnable = new Program20();
+
+        System.out.println("Creating Thread...");
+
+        Thread thread = new Thread(runnable);
+
+        System.out.println("Starting Thread...");
+
+        thread.start();
+    }
+}
